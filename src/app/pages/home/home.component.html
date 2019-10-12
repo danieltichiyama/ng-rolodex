@@ -1,3 +1,14 @@
 <h1>Home Page</h1>
 
-<button (click)="onLoad()">Get User</button>
+<!-- <button (click)="onLoad()">Get User</button> -->
+
+<form>
+  <label for="search">
+    <input
+      type="search"
+      placeholder="Start your search..."
+      name="search"
+      [(ngModel)]="formData.search"
+    />
+  </label>
+</form>

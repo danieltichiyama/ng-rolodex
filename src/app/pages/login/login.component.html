@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Login Component</h1>
+
+  <form>
+    <label for="username"
+      >Username:
+      <input type="text" name="username" [(ngModel)]="formData.username" />
+    </label>
+    <label for="password"
+      >Password:
+      <input type="password" name="password" [(ngModel)]="formData.password" />
+    </label>
+    <button>Submit</button>
+  </form>
+
+  <h4>Inputs</h4>
+  <div>Username: {{ formData.username }}</div>
+  <br />
+
+  <div>Password: {{ formData.password }}</div>
+</div>

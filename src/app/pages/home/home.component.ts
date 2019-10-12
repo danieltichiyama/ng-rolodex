@@ -8,6 +8,10 @@ import { BackendService } from "../../services/backend.services";
 export class HomeComponent {
   constructor(private backend: BackendService) {}
 
+  formData = {
+    search: ""
+  };
+
   onLoad = () => {
     this.backend.getUser();
   };
