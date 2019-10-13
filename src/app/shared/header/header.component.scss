@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0000001c;
+  border: none;
+
+  .header-left {
+    padding-left: 10px;
+    display: inherit;
+    align-items: center;
+  }
+
+  .header-right {
+    display: inherit;
+    justify-content: flex-end;
+    align-items: center;
+
+    .link {
+      margin: 5px;
+      text-decoration: none;
+    }
+
+    .logout {
+      margin: 5px;
+      background: #0084ff;
+      color: white;
+      height: 40px;
+      border-radius: 7px;
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+}

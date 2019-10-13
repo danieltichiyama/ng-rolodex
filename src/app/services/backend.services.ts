@@ -15,4 +15,13 @@ export class BackendService {
         console.log(response);
       });
   }
+
+  getContacts() {
+    return this.http
+      .get("/api/contacts")
+      .toPromise()
+      .then(response => {
+        console.log(response);
+      });
+  }
 }

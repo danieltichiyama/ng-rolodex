@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnChanges } from "@angular/core";
 import { BackendService } from "../../services/backend.services";
 
 @Component({
@@ -10,9 +10,5 @@ export class HomeComponent {
 
   formData = {
     search: ""
-  };
-
-  onLoad = () => {
-    this.backend.getUser();
   };
 }
