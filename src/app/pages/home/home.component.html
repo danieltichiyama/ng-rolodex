@@ -8,4 +8,13 @@
       [(ngModel)]="formData.search"
     />
   </form>
+  <div class="container cardContainer">
+    <div class="container card" *ngFor="let contact of contacts">
+      <div class="name">{{ contact.name }}</div>
+      <div>Address:</div>
+      <div class="contactInfo address">{{ contact.address }}</div>
+      <div>Email:</div>
+      <div class="contactInfo email">{{ contact.email }}</div>
+    </div>
+  </div>
 </div>

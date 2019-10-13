@@ -3,8 +3,13 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   console.log("/contacts GET");
-
-  return res.json({ message: "/contact GET" });
+  return req.database.Contact.fetchAll()
+    .then(results => {
+      return res.json(results);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 router.get("/smoke", (req, res) => {

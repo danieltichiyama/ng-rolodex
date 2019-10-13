@@ -17,11 +17,12 @@ export class BackendService {
   }
 
   getContacts() {
+    console.log("getting contacts");
     return this.http
       .get("/api/contacts")
       .toPromise()
       .then(response => {
-        console.log(response);
+        return response;
       });
   }
 }
