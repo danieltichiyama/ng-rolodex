@@ -10,6 +10,7 @@ import { LoginComponent } from "./pages/login/login.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { Four04 } from "./pages/404/404.component";
 import { CardComponent } from "./shared/card/card.component";
+import { CreateComponent } from "./pages/create/create.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CardComponent } from "./shared/card/card.component";
     LoginComponent,
     HeaderComponent,
     Four04,
-    CardComponent
+    CardComponent,
+    CreateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
