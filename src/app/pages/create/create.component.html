@@ -22,7 +22,7 @@
     name="address"
     [(ngModel)]="formData.address"
   />
-  <button type="submit">Submit</button>
+  <button (click)="onSubmit(formData)">Submit</button>
 </form>
 
 {{ formData | json }}

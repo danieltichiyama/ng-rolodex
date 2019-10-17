@@ -17,9 +17,26 @@ export class BackendService {
   }
 
   getContacts() {
-    console.log("getting contacts");
+    console.log("getting contacts from database");
     return this.http
       .get("/api/contacts")
+      .toPromise()
+      .then(response => {
+        return response;
+      });
+  }
+
+  postCard(data) {
+    console.log("posting new contact to database");
+
+    let config = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      }
+    };
+    return this.http
+      .post("/api/contacts", data, config)
       .toPromise()
       .then(response => {
         return response;

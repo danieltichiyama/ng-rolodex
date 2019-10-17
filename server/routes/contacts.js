@@ -27,7 +27,14 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   console.log("/contacts POST body", req.body);
 
-  return res.json({ message: "/contacts POST", body: req.body });
+  return req.database.Contact.forge(req.body)
+    .save()
+    .then(results => {
+      return res.json(results);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 router.put("/:id", (req, res) => {
