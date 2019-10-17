@@ -9,8 +9,9 @@ import { HomeComponent } from "./pages/home/home.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { Four04 } from "./pages/404/404.component";
-import { CardComponent } from "./shared/card/card.component";
 import { CreateComponent } from "./pages/create/create.component";
+import { EditComponent } from "./pages/edit/edit.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { CreateComponent } from "./pages/create/create.component";
     LoginComponent,
     HeaderComponent,
     Four04,
-    CardComponent,
-    CreateComponent
+    CreateComponent,
+    EditComponent,
+    ContactComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

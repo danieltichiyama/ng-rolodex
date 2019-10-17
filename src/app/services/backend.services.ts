@@ -28,7 +28,6 @@ export class BackendService {
 
   postCard(data) {
     console.log("posting new contact to database");
-
     let config = {
       method: "POST",
       headers: {
@@ -37,6 +36,21 @@ export class BackendService {
     };
     return this.http
       .post("/api/contacts", data, config)
+      .toPromise()
+      .then(response => {
+        return response;
+      });
+  }
+
+  putCard(data) {
+    console.log("putting edited contact into database");
+    let config = {
+      method: "PUT",
+      headers: { "Content-type": "application/json" }
+    };
+
+    return this.http
+      .put(`api/contacts/${data.id}`, data, config)
       .toPromise()
       .then(response => {
         return response;

@@ -35,9 +35,17 @@ router.post("/", (req, res) => {
     .catch(err => {
       console.log(err);
     });
-});
+}); //needs a validator that the contact does not exist
 
 router.put("/:id", (req, res) => {
+  return req.database.Contact.where({ id: req.body.id })
+    .save(req.body, { method: "update", patch: true })
+    .then(results => {
+      return res.json(results);
+    })
+    .catch(err => {
+      console.log(err);
+    });
   console.log(`/contacts/${req.params.id} PUT body`, req.body);
 
   return res.json({
