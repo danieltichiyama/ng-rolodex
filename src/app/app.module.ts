@@ -12,6 +12,7 @@ import { Four04 } from "./pages/404/404.component";
 import { CreateComponent } from "./pages/create/create.component";
 import { EditComponent } from "./pages/edit/edit.component";
 import { ContactComponent } from "./pages/contact/contact.component";
+import { NewCardComponent } from "./shared/newCard/newCard.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactComponent } from "./pages/contact/contact.component";
     Four04,
     CreateComponent,
     EditComponent,
-    ContactComponent
+    ContactComponent,
+    NewCardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

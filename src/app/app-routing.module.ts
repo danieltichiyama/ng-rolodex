@@ -6,13 +6,13 @@ import { Four04 } from "./pages/404/404.component";
 import { CreateComponent } from "./pages/create/create.component";
 import { EditComponent } from "./pages/edit/edit.component";
 import { ContactComponent } from "./pages/contact/contact.component";
-
+//Routersnapshot
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "new", component: CreateComponent },
   { path: "edit", component: EditComponent },
-  { path: "contacts/1", component: ContactComponent },
+  { path: "contacts/:id", component: ContactComponent },
   { path: "**", component: Four04 }
 ];
 

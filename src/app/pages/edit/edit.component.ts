@@ -25,7 +25,7 @@ export class EditComponent implements OnInit {
     this.backend.putCard(this.formData).then(results => {
       console.log("received data back from server.");
       console.log(results);
-      return this.router.navigate([`/contacts/${results.id}`]);
+      return this.router.navigate([`/contacts/${results}`]);
     });
   }
 }
