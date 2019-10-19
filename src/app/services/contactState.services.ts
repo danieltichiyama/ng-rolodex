@@ -1,8 +1,21 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class ContactState {
-  contactData;
+  private _hasContactDataSubject = new BehaviorSubject<object>({});
+
+  hasContactDataAsObservable() {
+    return this._hasContactDataSubject.asObservable();
+  }
+
+  getContactData() {
+    return this._hasContactDataSubject;
+  }
+
+  setContactData(data) {
+    this._hasContactDataSubject.next(data);
+  }
 }

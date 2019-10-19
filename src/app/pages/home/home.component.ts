@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.services";
 import { ContactState } from "../../services/contactState.services";
 import { Router } from "@angular/router";
+import { OpenClose } from "src/app/services/openClose.service";
 
 @Component({
   templateUrl: "./home.component.html",
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private backend: BackendService,
     private contact: ContactState,
-    private router: Router
+    private router: Router,
+    private openClose: OpenClose
   ) {}
 
   formData = {
@@ -30,7 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   onEdit(data) {
-    this.contact.contactData = data;
-    this.router.navigate(["/edit"]);
+    this.contact.setContactData(data);
+    return this.openClose.toggle("editCard");
   }
 }

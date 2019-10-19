@@ -5,7 +5,8 @@ import { Injectable } from "@angular/core";
 })
 export class OpenClose {
   moduleStatuses = {
-    newCard: false
+    newCard: false,
+    editCard: false
   };
 
   toggle(key) {

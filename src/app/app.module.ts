@@ -10,9 +10,9 @@ import { LoginComponent } from "./pages/login/login.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { Four04 } from "./pages/404/404.component";
 import { CreateComponent } from "./pages/create/create.component";
-import { EditComponent } from "./pages/edit/edit.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { NewCardComponent } from "./shared/newCard/newCard.component";
+import { EditCardComponent } from "./shared/editCard/editCard.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { NewCardComponent } from "./shared/newCard/newCard.component";
     HeaderComponent,
     Four04,
     CreateComponent,
-    EditComponent,
+    EditCardComponent,
     ContactComponent,
     NewCardComponent
   ],
