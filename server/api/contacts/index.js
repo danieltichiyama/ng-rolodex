@@ -66,10 +66,12 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  return res.database.Contact.where({ id: req.body.id })
+  console.log("searching or matching entry in database");
+  return req.database.Contact.where({ id: req.params.id })
     .destroy()
     .then(results => {
-      return res.json(results);
+      console.log("found matching entry in database and detroyed");
+      return res.status(200).json({ message: "DELETE successful" });
     })
     .catch(err => {
       console.log(err);

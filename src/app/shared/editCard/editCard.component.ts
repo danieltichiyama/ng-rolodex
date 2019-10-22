@@ -35,7 +35,7 @@ export class EditCardComponent implements OnInit, OnDestroy {
       console.log("received data back from server.");
       console.log(results);
       this.toggleComponent();
-      return this.router.navigate([`/`]);
+      return this.backend.getAllContacts();
     });
   }
 

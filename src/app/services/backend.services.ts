@@ -119,4 +119,15 @@ export class BackendService {
         return response;
       });
   }
+
+  deleteCard(data) {
+    console.log(data);
+    console.log("sending data to database");
+    return this.http
+      .delete(`api/contacts/${data.id}`, data)
+      .toPromise()
+      .then(results => {
+        return results;
+      });
+  }
 }

@@ -11,6 +11,7 @@ export class OpenClose {
   };
 
   toggle(key) {
+    console.log("toggling " + key + "property");
     return (this.moduleStatuses[key] = !this.moduleStatuses[key]);
   }
 }

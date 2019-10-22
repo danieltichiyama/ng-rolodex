@@ -43,7 +43,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logout = () => {
-    return this.auth.logout();
+    this.auth.logout();
+    return;
   };
 
   openNewCard = () => {

@@ -12,7 +12,6 @@ import { SessionService } from "src/app/services/session.service";
 export class NewCardComponent {
   constructor(
     private backend: BackendService,
-    private router: Router,
     private openClose: OpenClose,
     private session: SessionService
   ) {}
