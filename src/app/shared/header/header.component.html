@@ -2,13 +2,15 @@
   <div class="header-left">
     <h1>ROLODEX</h1>
   </div>
-  <div class="header-right">
+  <div class="header-right" *ngIf="isLoggedIn()">
     <nav>
-      <a routerLink="/" class="link">Home</a>
-      <a routerLink="/contacts" class="link">View All Contacts</a>
+      <button routerLink="/" class="link">Home</button>
+      <button (click)="onViewAll()" class="link">View All Contacts</button>
       <button (click)="openNewCard()" class="link">Create New Contact</button>
-      <a routerLink="/" class="link">My Profile</a>
+      <button routerLink="/" class="link">My Profile</button>
     </nav>
-    <button class="logout">Log Out</button>
+    <button class="logout" (click)="logout()">
+      Log Out
+    </button>
   </div>
 </div>

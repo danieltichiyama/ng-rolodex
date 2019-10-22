@@ -1,9 +1,31 @@
 const express = require("express");
 const router = express.Router();
 
+router.get("/search/:term", (req, res) => {
+  console.log("getting matching contacts from database");
+
+  return req.database.Contact.where({ created_by: req.query.user })
+    .fetchAll()
+    .then(results => {
+      return results.toJSON();
+    })
+    .then(results => {
+      return results.filter(element => {
+        return element.name
+          .toLowerCase()
+          .includes(req.params.term.toLowerCase());
+      });
+    })
+    .then(results => {
+      console.log(`got ${results.length} matching contacts`);
+      return res.json(results);
+    });
+});
+
 router.get("/", (req, res) => {
-  console.log("/contacts GET");
-  return req.database.Contact.fetchAll()
+  console.log("searching database for contacts associated with user.");
+  return req.database.Contact.where({ created_by: req.query.user })
+    .fetchAll()
     .then(results => {
       return res.json(results);
     })
@@ -14,19 +36,14 @@ router.get("/", (req, res) => {
 
 router.get("/smoke", (req, res) => {
   console.log("contacts smoke test");
-
   return res.json({ message: "contacts smoke" });
 });
 
 router.get("/:id", (req, res) => {
-  console.log(`/contacts/${req.params.id} GET`);
-
   return res.json({ message: `/contact/${req.params.id} GET` });
 });
 
 router.post("/", (req, res) => {
-  console.log("/contacts POST body", req.body);
-
   return req.database.Contact.forge(req.body)
     .save()
     .then(results => {
@@ -35,7 +52,7 @@ router.post("/", (req, res) => {
     .catch(err => {
       console.log(err);
     });
-}); //needs a validator that the contact does not exist
+});
 
 router.put("/:id", (req, res) => {
   return req.database.Contact.where({ id: req.body.id })
@@ -46,20 +63,17 @@ router.put("/:id", (req, res) => {
     .catch(err => {
       console.log(err);
     });
-  console.log(`/contacts/${req.params.id} PUT body`, req.body);
-
-  return res.json({
-    message: `/contacts/${req.params.id} PUT`,
-    body: req.body
-  });
 });
 
 router.delete("/:id", (req, res) => {
-  console.log(`/contacts/${req.params.id} DELETE`);
-
-  return res.json({
-    message: `/contacts/${req.params.id} DELETE`
-  });
+  return res.database.Contact.where({ id: req.body.id })
+    .destroy()
+    .then(results => {
+      return res.json(results);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 module.exports = router;

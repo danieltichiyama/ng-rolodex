@@ -15,7 +15,7 @@ export class ContactState {
     return this._hasContactDataSubject;
   }
 
-  setContactData(data) {
-    this._hasContactDataSubject.next(data);
+  populateContactData(data) {
+    return this._hasContactDataSubject.next(data); //WHERE IS THIS BEING CALLED!!
   }
 }

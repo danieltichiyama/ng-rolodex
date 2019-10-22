@@ -1,15 +1,21 @@
 <div class="container home">
   <form>
     <label for="search">Search for a contact...</label>
-    <input
-      class="searchbar"
-      type="search"
-      name="search"
-      [(ngModel)]="formData.search"
-    />
+    <div class="searchbarContainer">
+      <input
+        class="searchbar"
+        type="search"
+        name="search"
+        [(ngModel)]="formData.search"
+      />
+      {{ formData.search }}
+      <button (click)="onSearch(formData.search)">
+        Search
+      </button>
+    </div>
   </form>
   <div class="container cardContainer">
-    <div class="container card" *ngFor="let contact of contacts">
+    <div class="container card" *ngFor="let contact of this.contacts">
       <div class="name">{{ contact.name }}</div>
       <div>Address:</div>
       <div class="contactInfo address">{{ contact.address }}</div>
