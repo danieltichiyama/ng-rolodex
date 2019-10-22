@@ -13,6 +13,7 @@ import { CreateComponent } from "./pages/create/create.component";
 import { ContactComponent } from "./shared/contact/contact.component";
 import { NewCardComponent } from "./shared/newCard/newCard.component";
 import { EditCardComponent } from "./shared/editCard/editCard.component";
+import { RegisterComponent } from "./pages/register/register.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditCardComponent } from "./shared/editCard/editCard.component";
     CreateComponent,
     EditCardComponent,
     ContactComponent,
-    NewCardComponent
+    NewCardComponent,
+    RegisterComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

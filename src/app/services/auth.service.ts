@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BackendService } from "./backend.services";
 import { SessionService } from "./session.service";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root" //allows you to automatically bind the service to the module, without typing it out in the app.module file
@@ -8,7 +9,8 @@ import { SessionService } from "./session.service";
 export class AuthService {
   constructor(
     private backend: BackendService,
-    private session: SessionService
+    private session: SessionService,
+    private router: Router
   ) {}
   login(data) {
     console.log("sending form data to backend.service");
@@ -25,8 +27,13 @@ export class AuthService {
   }
 
   logout() {
-    return this.backend.logout().then(() => {
-      this.session.clearSession();
-    });
+    return this.backend
+      .logout()
+      .then(() => {
+        this.session.clearSession();
+      })
+      .then(() => {
+        return this.router.navigate(["/login"]);
+      });
   }
 }
