@@ -1,0 +1,10 @@
+<div class="container" [ngClass]="isOpen() ? 'display' : 'hidden'">
+  <h1>{{ cardData.name }}</h1>
+  <button (click)="toggleComponent()">Close</button>
+  <div class="name">{{ cardData.name }}</div>
+  <div>Address:</div>
+  <div class="contactInfo address">{{ cardData.address }}</div>
+  <div>Email:</div>
+  <div class="contactInfo email">{{ cardData.email }}</div>
+  <button (click)="onEdit(cardData)">Edit</button>
+</div>

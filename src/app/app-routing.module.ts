@@ -8,8 +8,7 @@ import { ContactComponent } from "./pages/contact/contact.component";
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "login", component: LoginComponent },
-  { path: "contacts/:id", component: ContactComponent }
-  // { path: "**", component: Four04 }
+  { path: "**", component: Four04 }
 ];
 
 @NgModule({

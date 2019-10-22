@@ -50,4 +50,9 @@ export class HomeComponent implements OnInit {
   onSearch(string) {
     return this.backend.search(string);
   }
+
+  openContact(contact) {
+    this.contact.populateContactData(contact);
+    this.openClose.toggle("contact");
+  }
 }
