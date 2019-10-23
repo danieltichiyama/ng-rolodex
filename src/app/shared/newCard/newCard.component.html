@@ -9,7 +9,17 @@
       class="createInput"
       name="name"
       [(ngModel)]="formData.name"
+      (keyup)="validateName()"
+      (blur)="validateName()"
+      #name="ngModel"
     />
+    <!-- what is #name for?? -->
+    <div
+      class="error"
+      *ngIf="!this.validation.validateName(formData) && name.touched"
+    >
+      {{ this.validation.errors.name }}
+    </div>
     <br />
     <label for="email">Email: </label>
     <input
@@ -17,7 +27,34 @@
       class="createInput"
       name="email"
       [(ngModel)]="formData.email"
+      (keyup)="validateEmail()"
+      (blur)="validateEmail()"
+      #email="ngModel"
     />
+    <div
+      class="error"
+      *ngIf="!this.validation.validateEmail(formData) && email.touched"
+    >
+      {{ this.validation.errors.email }}
+    </div>
+    <br />
+    <label for="mobile">Mobile: </label>
+    <input
+      type="text"
+      class="createInput"
+      name="mobile"
+      [(ngModel)]="formData.mobile"
+      (keyup)="validateMobile()"
+      (blur)="validateMobile()"
+      #mobile="ngModel"
+    />
+
+    <div
+      class="error"
+      *ngIf="!this.validation.validateMobile(formData) && mobile.touched"
+    >
+      {{ this.validation.errors.mobile }}
+    </div>
     <br />
     <label for="address">Address: </label>
     <input

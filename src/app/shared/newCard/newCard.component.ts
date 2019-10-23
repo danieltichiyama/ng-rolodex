@@ -3,6 +3,7 @@ import { BackendService } from "src/app/services/backend.services";
 import { Router } from "@angular/router";
 import { OpenClose } from "src/app/services/openClose.service";
 import { SessionService } from "src/app/services/session.service";
+import { ValidationService } from "src/app/services/validation.services";
 
 @Component({
   selector: "app-newCard",
@@ -13,13 +14,15 @@ export class NewCardComponent {
   constructor(
     private backend: BackendService,
     private openClose: OpenClose,
-    private session: SessionService
+    private session: SessionService,
+    private validation: ValidationService
   ) {}
 
   formData = {
     name: "",
     email: "",
-    address: ""
+    address: "",
+    mobile: ""
   };
 
   isOpen = () => {
@@ -39,5 +42,31 @@ export class NewCardComponent {
 
   closeComponent = () => {
     this.openClose.toggle("newCard");
+  };
+
+  errors = {
+    name: "",
+    address: "",
+    email: "",
+    mobile: ""
+  };
+
+  valid = {
+    name: false,
+    email: false,
+    address: false,
+    mobile: false
+  };
+
+  validateName = () => {
+    return this.validation.validateName(this.formData);
+  };
+
+  validateEmail = () => {
+    return this.validation.validateEmail(this.formData);
+  };
+
+  validateMobile = () => {
+    return this.validation.validateMobile(this.formData);
   };
 }

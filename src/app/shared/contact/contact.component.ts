@@ -36,8 +36,7 @@ export class ContactComponent implements OnInit {
 
   onEdit(data) {
     this.contact.populateContactData(data);
-    this.openClose.toggle("editCard");
-    return this.openClose.toggle("contact");
+    return this.openClose.toggle("editCard");
   }
 
   onDelete = data => {
