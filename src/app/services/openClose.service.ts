@@ -20,6 +20,10 @@ export class OpenClose {
       }
     }
 
+    if (key === "contact" && this.moduleStatuses.contact) {
+      return (this.moduleStatuses.contact = true);
+    }
+
     return (this.moduleStatuses[key] = !this.moduleStatuses[key]);
   }
 
