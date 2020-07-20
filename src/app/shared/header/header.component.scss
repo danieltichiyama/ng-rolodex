@@ -1,0 +1,141 @@
+@import "../../../styles.scss";
+
+.header {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  height: 75px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  border-radius: 0;
+
+  .header-left {
+    padding-left: 24px;
+    display: inherit;
+    align-items: center;
+    width: 100%;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .header-right {
+    display: inherit;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    min-width: fit-content;
+
+    .mobileMenuBtn {
+      display: none;
+    }
+
+    @include sm {
+      & > :not(.mobileMenuBtn) {
+        display: none;
+      }
+
+      .mobileMenuBtn {
+        height: 48px;
+        width: 48px;
+        margin-right: 12px;
+        padding: 0 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $blue;
+
+          .line {
+            background-color: white;
+          }
+        }
+
+        .line {
+          height: 4px;
+          width: 100%;
+          background-color: gray;
+          border-radius: 2px;
+        }
+
+        .mobileMenu {
+          position: absolute;
+          top: 60px;
+          width: 100vw;
+          height: 90vh;
+          border-radius: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          background-color: #c5c5c5;
+          transition: right 1s;
+
+          & > :not(button) {
+            margin: 12px;
+            font-size: 24px;
+            width: 100%;
+            padding: 24px;
+            text-align: center;
+
+            &:hover {
+              background-color: gray;
+              color: white;
+              border-radius: 0;
+            }
+          }
+
+          & > button {
+            padding: 12px 24px;
+            height: auto;
+            width: 100%;
+            font-size: 24px;
+            max-width: 95%;
+            margin: 12px 12px;
+          }
+        }
+
+        .display {
+          right: -12px;
+        }
+
+        .hidden {
+          right: -110vw;
+        }
+      }
+    }
+
+    .link {
+      margin: 0 12px;
+      text-decoration: none;
+      border: none;
+      font-size: inherit;
+      color: $blue;
+      background: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .logout {
+      margin: 5px;
+      height: 40px;
+      font-size: 14px;
+      padding: 10px 24px;
+      max-width: fit-content;
+      margin-right: 24px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

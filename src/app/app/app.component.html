@@ -1,0 +1,13 @@
+<div class="master_container">
+  <app-header></app-header>
+
+  <router-outlet></router-outlet>
+  <div
+    class="master_container_modal"
+    [ngClass]="modalIsOpen() ? 'display' : 'hidden'"
+  >
+    <app-newCard></app-newCard>
+    <app-contact></app-contact>
+    <app-editCard></app-editCard>
+  </div>
+</div>

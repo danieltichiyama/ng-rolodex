@@ -1,0 +1,27 @@
+<div class="container header">
+  <div class="header-left">
+    <h1>ROLODEX</h1>
+  </div>
+  <nav class="header-right" *ngIf="isLoggedIn()">
+    <div class="mobileMenuBtn" (click)="toggleMobileMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div
+        class="mobileMenu"
+        [ngClass]="mobileMenuIsOpen ? 'display' : 'hidden'"
+      >
+        <a (click)="onViewAll()" class="link">All Contacts</a>
+        <a (click)="openNewCard()" class="link">+ New Contact</a>
+        <button class="logout" (click)="logout()">
+          Log Out
+        </button>
+      </div>
+    </div>
+    <a (click)="onViewAll()" class="link">All Contacts</a>
+    <a (click)="openNewCard()" class="link">+ New Contact</a>
+    <button class="logout" (click)="logout()">
+      Log Out
+    </button>
+  </nav>
+</div>

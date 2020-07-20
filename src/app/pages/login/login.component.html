@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <label for="username"
+        >Username:
+        <input type="text" name="username" [(ngModel)]="formData.username" />
+      </label>
+
+      <button class="btn" (click)="login()">Submit</button>
+      <button class="btn" routerLink="/register">Regiser</button>
+    </form>
+  </div>
+</div>
