@@ -58,7 +58,6 @@ export class BackendService {
       .get(`/api/logout`)
       .toPromise()
       .then((response) => {
-        console.log("logged out in backend", response);
         return response;
       })
       .catch((err) => {

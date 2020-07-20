@@ -1,69 +1,70 @@
-<div class="container" [ngClass]="isOpen() ? 'display' : 'hidden'">
-  <h1>Add Contact</h1>
-  <button (click)="closeComponent()">Close</button>
+<div class="modal_container" [ngClass]="isOpen() ? 'display' : 'hidden'">
+  <div class="modal">
+    <h1>Add Contact</h1>
+    <form>
+      <label for="name">Name </label>
+      <input
+        type="text"
+        class="createInput"
+        name="name"
+        [(ngModel)]="formData.name"
+        (keyup)="validateName()"
+        (blur)="validateName()"
+        #name="ngModel"
+      />
+      <!-- what is #name for?? -->
+      <div
+        class="error"
+        *ngIf="!this.validation.validateName(formData) && name.touched"
+      >
+        {{ this.validation.errors.name }}
+      </div>
+      <br />
+      <label for="email">Email </label>
+      <input
+        type="text"
+        class="createInput"
+        name="email"
+        [(ngModel)]="formData.email"
+        (keyup)="validateEmail()"
+        (blur)="validateEmail()"
+        #email="ngModel"
+      />
+      <div
+        class="error"
+        *ngIf="!this.validation.validateEmail(formData) && email.touched"
+      >
+        {{ this.validation.errors.email }}
+      </div>
+      <br />
+      <label for="mobile">Mobile </label>
+      <input
+        type="text"
+        class="createInput"
+        name="mobile"
+        [(ngModel)]="formData.mobile"
+        (keyup)="validateMobile()"
+        (blur)="validateMobile()"
+        #mobile="ngModel"
+      />
 
-  <form>
-    <label for="name">Name: </label>
-    <input
-      type="text"
-      class="createInput"
-      name="name"
-      [(ngModel)]="formData.name"
-      (keyup)="validateName()"
-      (blur)="validateName()"
-      #name="ngModel"
-    />
-    <!-- what is #name for?? -->
-    <div
-      class="error"
-      *ngIf="!this.validation.validateName(formData) && name.touched"
-    >
-      {{ this.validation.errors.name }}
-    </div>
-    <br />
-    <label for="email">Email: </label>
-    <input
-      type="text"
-      class="createInput"
-      name="email"
-      [(ngModel)]="formData.email"
-      (keyup)="validateEmail()"
-      (blur)="validateEmail()"
-      #email="ngModel"
-    />
-    <div
-      class="error"
-      *ngIf="!this.validation.validateEmail(formData) && email.touched"
-    >
-      {{ this.validation.errors.email }}
-    </div>
-    <br />
-    <label for="mobile">Mobile: </label>
-    <input
-      type="text"
-      class="createInput"
-      name="mobile"
-      [(ngModel)]="formData.mobile"
-      (keyup)="validateMobile()"
-      (blur)="validateMobile()"
-      #mobile="ngModel"
-    />
-
-    <div
-      class="error"
-      *ngIf="!this.validation.validateMobile(formData) && mobile.touched"
-    >
-      {{ this.validation.errors.mobile }}
-    </div>
-    <br />
-    <label for="address">Address: </label>
-    <input
-      type="text"
-      class="createInput"
-      name="address"
-      [(ngModel)]="formData.address"
-    />
-    <br />
-    <button (click)="onSubmit()">Submit</button>
-  </form>
+      <div
+        class="error"
+        *ngIf="!this.validation.validateMobile(formData) && mobile.touched"
+      >
+        {{ this.validation.errors.mobile }}
+      </div>
+      <br />
+      <label for="address">Address </label>
+      <input
+        type="text"
+        class="createInput"
+        name="address"
+        [(ngModel)]="formData.address"
+      />
+      <br />
+      <button (click)="onSubmit()">Submit</button>
+      <button (click)="closeComponent()">Close</button>
+    </form>
+  </div>
 </div>

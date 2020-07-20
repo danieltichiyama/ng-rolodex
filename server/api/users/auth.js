@@ -14,7 +14,6 @@ router.post("/login", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  console.log("logged out");
   res.send("logged out");
 });
 

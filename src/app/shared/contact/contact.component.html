@@ -1,13 +1,13 @@
-<div class="container" [ngClass]="isOpen() ? 'display' : 'hidden'">
-  <h1>{{ cardData.name }}</h1>
-  <button (click)="toggleComponent()">Close</button>
-  <div class="name">{{ cardData.name }}</div>
-  <div>Email:</div>
-  <div class="contactInfo email">{{ cardData.email }}</div>
-  <div>Mobile:</div>
-  <div class="contactInfo email">{{ cardData.mobile }}</div>
-  <div>Address:</div>
-  <div class="contactInfo address">{{ cardData.address }}</div>
-  <button (click)="onEdit(cardData)">Edit</button>
-  <button (click)="onDelete(cardData)">Delete</button>
+<div class="modal_container" [ngClass]="isOpen() ? 'display' : 'hidden'">
+  <div class="modal">
+    <h1>{{ cardData.name }}</h1>
+    <div class="contactInfo-container">
+      <div class="contactInfo email">Email: {{ cardData.email }}</div>
+      <div class="contactInfo mobile">Mobile: {{ cardData.mobile }}</div>
+      <div class="contactInfo address">Address: {{ cardData.address }}</div>
+      <button (click)="onEdit(cardData)">Edit</button>
+      <button (click)="onDelete(cardData)">Delete</button>
+      <button (click)="toggleComponent()">Close</button>
+    </div>
+  </div>
 </div>
