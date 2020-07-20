@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class ContactState {
   private _hasContactDataSubject = new BehaviorSubject<object>({});
@@ -16,6 +16,6 @@ export class ContactState {
   }
 
   populateContactData(data) {
-    return this._hasContactDataSubject.next(data); //WHERE IS THIS BEING CALLED!!
+    return this._hasContactDataSubject.next(data);
   }
 }

@@ -8,10 +8,11 @@ import { BackendService } from "src/app/services/backend.services";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"]
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   user = {};
+  mobileMenuIsOpen = false;
 
   private _isLoggedIn = false;
   private _isLoggedInAsObservable;
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       (loggedIn: boolean) => {
         this._isLoggedIn = loggedIn;
       },
-      err => {
+      (err) => {
         console.log(err);
       }
     );
@@ -58,4 +59,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._isLoggedInAsObservable.unsubscribe();
   }
+
+  toggleMobileMenu = () => {
+    this.mobileMenuIsOpen = !this.mobileMenuIsOpen;
+  };
 }

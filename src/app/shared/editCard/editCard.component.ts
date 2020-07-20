@@ -7,7 +7,7 @@ import { OpenClose } from "src/app/services/openClose.service";
 @Component({
   selector: "app-editCard",
   templateUrl: "./editCard.component.html",
-  styleUrls: ["./editCard.component.scss"]
+  styleUrls: ["./editCard.component.scss"],
 })
 export class EditCardComponent implements OnInit, OnDestroy {
   constructor(
@@ -26,14 +26,12 @@ export class EditCardComponent implements OnInit, OnDestroy {
     this._hasContactDataAsObservable.subscribe((data: object) => {
       this.formData = data;
     }),
-      err => {
+      (err) => {
         console.log(err);
       };
   }
   onSubmit() {
-    this.backend.putCard(this.formData).then(results => {
-      console.log("received data back from server.");
-      console.log(results);
+    this.backend.putCard(this.formData).then((results) => {
       this.toggleComponent();
       return this.backend.getAllContacts();
     });

@@ -1,6 +1,10 @@
 .master_container {
   height: 100%;
+  width: 100vw;
   padding-top: 75px;
+  position: relative;
+  overflow-x: hidden;
+  border-radius: 0;
 
   .master_container_modal {
     position: absolute;
@@ -9,6 +13,7 @@
     height: 100%;
     width: 100%;
     z-index: 99;
+    border-radius: 0;
   }
 
   .display {

@@ -33,7 +33,20 @@ export class HomeComponent implements OnInit {
 
     this._contactsAsObservable = this.backend.getContacts();
     this._contactsAsObservable.subscribe((data) => {
-      this.contacts = data;
+      let sortedData = data.sort((a, b) => {
+        let nameA = a.name.toUpperCase();
+        let nameB = b.name.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        return 0;
+      });
+      this.contacts = sortedData;
     }),
       (err) => {
         console.log(err);
