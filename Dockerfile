@@ -7,7 +7,7 @@ RUN apk update && apk upgrade
 RUN adduser -D -g '' webuser
 
 # SET default APP_DIR path
-ARG APP_DIR=/src/app
+ARG APP_DIR=/src/App
 
 # Create APP_DIR path and set permissions
 RUN mkdir -p $APP_DIR

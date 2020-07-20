@@ -4,7 +4,7 @@ import { SessionService } from "./session.service";
 import { Router } from "@angular/router";
 
 @Injectable({
-  providedIn: "root" //allows you to automatically bind the service to the module, without typing it out in the app.module file
+  providedIn: "root", //allows you to automatically bind the service to the module, without typing it out in the app.module file
 })
 export class AuthService {
   constructor(
@@ -13,15 +13,13 @@ export class AuthService {
     private router: Router
   ) {}
   login(data) {
-    console.log("sending form data to backend.service");
-    return this.backend.login(data).then(response => {
-      console.log("sending data from backend.service to session.service");
+    return this.backend.login(data).then((response) => {
       this.session.setSession(response);
     });
   }
 
   register(data) {
-    return this.backend.register(data).then(response => {
+    return this.backend.register(data).then((response) => {
       this.session.setSession(response);
     });
   }
@@ -29,7 +27,7 @@ export class AuthService {
   logout() {
     return this.backend
       .logout()
-      .then(() => {
+      .then((response) => {
         this.session.clearSession();
       })
       .then(() => {

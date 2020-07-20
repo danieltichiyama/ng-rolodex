@@ -8,8 +8,6 @@ router.get("/smoke", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  console.log(`users/${req.params.id} PUT body`, req.body);
-
   res.json({ message: `/users/${req.params.id} PUT`, body: req.body });
 });
 

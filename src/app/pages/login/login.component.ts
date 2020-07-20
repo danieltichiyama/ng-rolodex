@@ -4,23 +4,22 @@ import { Router } from "@angular/router";
 
 @Component({
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
   formData = {
-    username: ""
+    username: "",
   };
 
   login = () => {
     this.auth
       .login(this.formData)
       .then(() => {
-        console.log("finished logging in");
         return this.router.navigate(["/"]);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         return this.router.navigate(["/login"]);
       });

@@ -7,7 +7,7 @@ import { SessionService } from "src/app/services/session.service";
 
 @Component({
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
   constructor(
@@ -18,26 +18,24 @@ export class HomeComponent implements OnInit {
     private session: SessionService
   ) {}
 
-  private _contactsAsObservable; //not working!
+  private _contactsAsObservable;
 
   formData = {
-    search: ""
+    search: "",
   };
 
   contacts;
 
   ngOnInit() {
-    console.log("initiation detected");
-
     if (this.session.getSession().id === 0) {
       this.router.navigate(["/login"]);
     }
 
-    this._contactsAsObservable = this.backend.getContacts(); //not working!
-    this._contactsAsObservable.subscribe(data => {
+    this._contactsAsObservable = this.backend.getContacts();
+    this._contactsAsObservable.subscribe((data) => {
       this.contacts = data;
     }),
-      err => {
+      (err) => {
         console.log(err);
       };
   }

@@ -2,12 +2,12 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class SessionService {
   user = {
     id: 0,
-    username: ""
+    username: "",
     // loggedIn: false
   };
 
@@ -56,7 +56,7 @@ export class SessionService {
     //remove from localStorage, step 2
     localStorage.removeItem("user");
 
-    this._isLoggedInSubject.next(false);
+    return this._isLoggedInSubject.next(false);
   }
 
   // isLoggedIn() {
