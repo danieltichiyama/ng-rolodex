@@ -39,10 +39,9 @@ app.use(bodyParser.json());
 app.use(decorator);
 
 app.get("/api/profile?user=:id", (req, res) => {
-  console.log("/profile GET");
   return req.database.User.where({ id: req.params.id })
     .fetch()
-    .then(results => {
+    .then((results) => {
       return res.json(results);
     });
 });
