@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.services";
 import { ContactState } from "../../services/contactState.services";
 import { Router } from "@angular/router";
-import { OpenClose } from "src/app/services/openClose.service";
-import { SessionService } from "src/app/services/session.service";
+import { OpenClose } from "../../services/openClose.service";
+import { SessionService } from "../../services/session.service";
 
 @Component({
   templateUrl: "./home.component.html",
