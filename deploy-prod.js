@@ -3,7 +3,7 @@ const knex = require("./server/database/knex");
 const DELAY = 3000;
 
 function testConnection() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       console.log("Polling for DB Connection...");
       knex.migrate
@@ -28,9 +28,9 @@ testConnection()
   })
   // run server
   .then(() => {
-    require("./server");
+    require("./server/server.js");
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
     process.exit(1);
   });
